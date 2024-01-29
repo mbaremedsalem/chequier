@@ -1,0 +1,171 @@
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened >
+      <mat-nav-list>
+        <div class="daily-document">
+          
+          <div class="document-container">
+            <div class="document-icon">
+              <img src="assets/images/AUB.png" class="mat-iconleft" width="60px" height="90px" alt=""> 
+            </div>
+            <div class="document-details">
+              <p>ALGERIAN UNION BANQUE</p>
+              <p>البنك الاتحاد الجزاري</p>
+            </div>
+          </div>
+         
+        </div>
+        <div class="navigation-menu">
+          <a mat-list-item [ngClass]="{'primary-list-item': !showDocuments}" (click)="toggleDocuments()" >
+            
+            <img src="assets/icons/cheque.png" class="mat-iconleft" width="30px" height="30px" alt=""> chéque 
+          </a>
+          <div *ngIf="showDocuments" class="document-tree">
+            <ul>
+                <li><a [routerLink]="['/acueil/balance-general-annuel']">chéque envoyer</a></li>
+                <li><a [routerLink]="['/acueil/balance-general-mensuel']">chéque distribuer</a></li>
+                <li><a [routerLink]="['/acueil/balance-detaille-annuel']">chéque traiter </a></li>          
+            </ul>
+        </div>
+
+        <a mat-list-item [routerLink]="['/acueil/flux-entrant']" >
+            
+          <img src="assets/icons/bank-account.png" class="mat-iconleft" width="30px" height="30px" alt=""> compte 
+        </a>
+    
+
+
+
+          <a mat-list-item [routerLink]="['/home-admin/profile-admin']" [ngClass]="'primary-list-item'">
+            <img src="assets/icons/user.png" class="mat-iconleft" width="30px" height="30px" alt=""> Profile
+
+            
+          </a>
+
+        
+        </div>
+        
+      </mat-nav-list>
+      
+    </mat-sidenav>
+  
+    <mat-sidenav-content >
+        <mat-toolbar style="height: 80px; color: white; background-color:#314905;" >
+            <button mat-icon-button (click)="sidenav.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+            <img src="assets/icons/main-menu.png" class="mat-icontop" width="30px" height="30px" alt=""> 
+            </button>
+            <span style="padding-bottom:15px;">Reporting</span>
+            <span class="example-spacer"></span>
+          
+          <div class="search-input-container">
+            <input type="text" placeholder="Rechercher..." class="search-input">
+          </div>
+          
+          <button  class="example-icon-sarche" >
+                <img src="assets/icons/search.png" class="mat-icontop-searche" width="30px" height="30px" alt=""> 
+          </button>
+          <button mat-icon-button class="example-icon-share favorite-icon"  >
+            <img src="assets/icons/logout-white.png" class="mat-icontop" width="30px" height="30px" alt=""> 
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <img src="assets/icons/notification.png" class="mat-icontop" width="30px" height="30px" alt=""> 
+          </button>
+          </mat-toolbar>
+
+
+      <div class="content">
+        <div *ngIf="isHomePage">
+          <h1>Bien venu En Page D'acueile</h1>
+          <div class="home-container">
+       
+            <div class="daily-documents">
+              <h2>Les  Avis Ajouter </h2>
+              <div class="document-container">
+                <div class="document-icon">
+                  <a mat-list-item [routerLink]="['/home-admin/Avis']" [ngClass]="'primary-list-item'">
+                  <img src="assets/icons/avi.png" class="mat-iconleft" width="30px" height="30px" alt="">
+                  </a>
+                </div>
+                <div class="document-details">
+                  <p>Nom du document : Formation CBS</p>
+                  <p>Date d'ajout : 01/11/2023</p>
+                </div>
+              </div>
+             
+            </div>
+          
+            <div class="inbox">
+              <h2>Les Procedures </h2>
+              <div class="message-container">
+                <div class="message-icon">
+                  <a mat-list-item [routerLink]="['/home-admin/Procedure']" [ngClass]="'primary-list-item'">
+                  <img src="assets/icons/automation.png" class="mat-iconleft" width="30px" height="30px" alt="">
+                </a>
+                </div>
+                <div class="message-details">
+                  <p>Expéditeur : M'baré Mohamed Salem</p>
+                  <p>Objet : Réunion importante</p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+  
+          <router-outlet *ngIf="!isHomePage"></router-outlet> <!-- Contenu de la page enfant si ce n'est pas la page "home" -->
+        
+      </div>
+    
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/images/AUB.png" class="rounded-image" alt="Logo de votre site" />
+        </div>
+  
+        <div class="footer-contact">
+          <h4>Contactez-nous</h4>
+          <input class="sed-mail" type="email" placeholder="Envoyez-nous un e-mail ..." />
+        </div>
+  
+        <div class="footer-links">
+          <h4>Liens utiles</h4>
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-location">
+          <h4>Notre emplacement</h4>
+          <p>Votre adresse ici</p>
+          <p>Votre ville, code postal</p>
+        </div>
+  
+        <div class="footer-social">
+          <h4>Restons connectés</h4>
+          <ul>
+            <li><a href="#">
+            <img src="assets/icons/facebook-logo.png" class="mat-icontop" width="30px" height="30px" alt=""> 
+              
+              Facebook</a></li>
+            <li><a href="#">
+            <img src="assets/icons/twitter.png" class="mat-icontop" width="30px" height="30px" alt=""> 
+              Twitter</a></li>
+            <li><a href="#">
+            <img src="assets/icons/linkedin.png" class="mat-icontop" width="30px" height="30px" alt=""> 
+              LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  
+
+

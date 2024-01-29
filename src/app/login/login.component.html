@@ -1,0 +1,55 @@
+<div class="row w-100 mx-0 auth-page">
+    <div class="col-md-8 col-xl-6 mx-auto">
+      <div class="card">
+          <!-- ... autres éléments ... -->
+        <div class="bank-icon">
+            <img src="assets/images/AUB.png" width="200px" height="100px" alt="Icône de la banque">
+        </div>
+        <div class="row">
+          <div class="col-md-4 pe-md-0">
+            <!--          <div class="auth-side-wrapper" [ngStyle]="{ 'background-image': 'url(https://via.placeholder.com/219x452)' }">-->
+  
+            <!--          </div>-->
+          </div>
+          <div class="col-md-8 ps-md-0">
+            <div class="auth-form-wrapper px-4 py-5">
+              <a routerLink="." class="nobleui-logo d-block mb-2">Chéquiers-AUB</a>
+              <h5 class="text-muted fw-normal mb-4">Applications de reporting AUB pour les chéques</h5>
+              <form class="forms-sample" [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div class="mb-3">
+                  <label for="username" class="form-label">Login</label>
+                  <input type="text"
+                         class="form-control"
+                         id="username"
+                         [(ngModel)]="credentials.username"
+                         formControlName="username"
+                         placeholder="login">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Mot de passe</label>
+                  <input type="password"
+                         class="form-control"
+                         [(ngModel)]="credentials.password"
+                         formControlName="password"
+                         id="password">
+                </div>
+                <div>
+                  <a [routerLink]="['/change-password']" class="txt1">
+                    Change Password?
+                  </a>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0" [disabled]="loginInProgress">
+                          
+                          <span *ngIf="!loginInProgress">Connexion</span>
+                            <mat-progress-spinner *ngIf="loginInProgress" mode="indeterminate" style="width: 20px; height: 20px; margin: auto;"></mat-progress-spinner>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

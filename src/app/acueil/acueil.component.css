@@ -1,0 +1,248 @@
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+ 
+  footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  }
+  
+  .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  }
+  
+  .footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  }
+  
+  .footer-logo img {
+  width: 100px;
+  height: auto;
+  border-radius: 5%;
+  }
+  
+  .footer-contact,
+  .footer-links,
+  .footer-location,
+  .footer-social {
+  flex: 1;
+  }
+  .sed-mail{
+  width: 400px;
+  height: 40px;
+  }
+  
+  .footer-contact,
+  .footer-links,
+  .footer-location,
+  .footer-social h4 {
+  font-size: 18px;
+  }
+  
+  .footer-links ul,
+  .footer-social ul ,.footer-links{
+  list-style: none;
+  padding: 0;
+  }
+  
+  .footer-links ul li,
+  .footer-social ul li {
+  margin-bottom: 10px;
+  }
+  
+  .footer-links a,
+  .footer-social a ,.footer-links a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  }
+  
+  /* Styling for the location and contact information */
+  .footer-location p {
+  margin: 5px 0;
+  }
+  
+  .footer-location h4 {
+  color: #fff;
+  margin: 0;
+  font-weight: bold;
+  }
+  
+  /* ----------- */
+  
+  .example-icon{
+    font-size: 30px; /* Increase the font size for a larger icon */
+    border: none; /* Make the icon's container a circle for a rounded look */
+    padding: 13px; /* Add some padding to create space around the icon */
+    cursor: pointer; /* Change the cursor on hover to indicate interaction */
+    background-color: transparent; 
+  
+  }
+  
+  .example-icon-share{
+    font-size: 30px; /* Increase the font size for a larger icon */
+    border: none; /* Make the icon's container a circle for a rounded look */
+    padding: 13px;
+    background-color: transparent; 
+    cursor: pointer;
+    
+  }
+  
+  /* --------------------- */
+  /* Dans votre fichier CSS, par exemple, home.component.css */
+
+  .daily-document{
+    width: 260px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+  }
+  .document-container,
+  .message-container {
+    display: flex;
+    align-items: center;
+   
+  }
+  
+  .document-icon,
+  .message-icon {
+    font-size: 36px;
+    margin-right: 10px;
+  }
+  
+
+  
+  /* Ajoutez d'autres styles CSS pour personnaliser la mise en page selon vos besoins */
+  #canvas {
+    width: 100%; /* Set the width as needed */
+    height: 400px; /* Set the height as needed */
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  .charts{
+  
+    display: flex;
+    margin: 20px;
+  }
+  
+  .pie{
+  
+    flex: 1;
+    box-shadow: 10px 10px 5px #aaaaaa;
+  
+    margin-right: 20px;
+  }
+  
+  .line{
+    flex: 1;
+    box-shadow: 10px 10px 5px #aaaaaa;
+  }
+  
+  .navigation-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  a:hover {
+    background-color: #eee;
+  }
+  
+  .mat-icontop {
+    margin-right: 10px;
+    font-size: 25px;
+    vertical-align:10px;
+  
+  }
+  .mat-iconleft{
+    margin-right: 10px;
+    font-size: 25px;
+    vertical-align:-6px;
+  }
+  
+  .primary-list-item {
+    color: primary-color;  
+  }
+  
+  .primary-list-item:hover {
+    background-color: primary-hover-color; 
+  }
+  
+  .example-tree-invisible {
+    display: none;
+  }
+  
+  .example-tree ul,
+  .example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+
+
+  .search-input-container {
+    display: flex;
+    align-items: center;
+    max-width: 300px; /* Ajustez la largeur maximale selon vos besoins */
+    margin: 0 auto; /* Pour centrer horizontalement */
+  }
+  
+  .search-input {
+    flex: 1;
+    height:30px; /* Ajustez la hauteur selon vos besoins */
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 30px 5px 10px; /* Ajoutez de l'espace à droite pour l'icône */
+  }
+  
+  .example-icon-sarche{
+    position: relative;
+    left: -30px; /* Ajustez la position pour aligner l'icône à la fin de l'input */
+    background-color: transparent; 
+    border: none;
+   
+  }
+  
+  .mat-icontop-searche {
+    width: 22px; /* Ajustez la largeur de l'icône selon vos besoins */
+    height: 22px; /* Ajustez la hauteur de l'icône selon vos besoins */
+  }
+ 
+  
+
+
+  
+
+
+  
+  
+  
+  
