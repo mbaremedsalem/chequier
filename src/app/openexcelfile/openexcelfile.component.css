@@ -1,0 +1,29 @@
+.btn-excl{
+padding:20px
+}
+.btn-envoy-excl{
+padding-left: 20px;
+padding-top: 10px;
+background-color: transparent; 
+
+
+}
+
+.page-content{
+    padding-left:20px;
+    cursor: pointer;
+}
+.example-icon{
+    font-size: 30px; /* Increase the font size for a larger icon */
+    border: none; /* Make the icon's container a circle for a rounded look */
+    padding: 13px; /* Add some padding to create space around the icon */
+    cursor: pointer; /* Change the cursor on hover to indicate interaction */
+    background-color: transparent; 
+
+    position: relative;
+    left: 30px; /* Ajustez la position pour aligner l'icône à la fin de l'input */
+    top: 12px;
+    border: none;
+  
+  }
+

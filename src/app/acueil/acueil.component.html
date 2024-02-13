@@ -22,21 +22,18 @@
           </a>
           <div *ngIf="showDocuments" class="document-tree">
             <ul>
-                <li><a [routerLink]="['/acueil/balance-general-annuel']">chéque envoyer</a></li>
-                <li><a [routerLink]="['/acueil/balance-general-mensuel']">chéque distribuer</a></li>
-                <li><a [routerLink]="['/acueil/balance-detaille-annuel']">chéque traiter </a></li>          
+                <li><a [routerLink]="['/acueil/cheque-envoyer']"> chéque envoyer </a></li>
+                <li><a [routerLink]="['/acueil/cheque-distribuer']"> chéque distribuer </a></li>
+                <li><a [routerLink]="['/acueil/cheque-traiter']"> chéque traiter </a></li>          
             </ul>
         </div>
 
-        <a mat-list-item [routerLink]="['/acueil/flux-entrant']" >
+        <!-- <a mat-list-item [routerLink]="['/acueil/flux-entrant']" >
             
           <img src="assets/icons/bank-account.png" class="mat-iconleft" width="30px" height="30px" alt=""> compte 
-        </a>
-    
-
-
-
-          <a mat-list-item [routerLink]="['/home-admin/profile-admin']" [ngClass]="'primary-list-item'">
+        </a> -->
+        
+          <a mat-list-item [routerLink]="['/acueil/profile']" [ngClass]="'primary-list-item'">
             <img src="assets/icons/user.png" class="mat-iconleft" width="30px" height="30px" alt=""> Profile
 
             
@@ -54,7 +51,7 @@
             <button mat-icon-button (click)="sidenav.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
             <img src="assets/icons/main-menu.png" class="mat-icontop" width="30px" height="30px" alt=""> 
             </button>
-            <span style="padding-bottom:15px;">Reporting</span>
+            <span style="padding-bottom:15px;">Chéque</span>
             <span class="example-spacer"></span>
           
           <div class="search-input-container">
