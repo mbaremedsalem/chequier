@@ -5,6 +5,12 @@
   <button mat-raised-button class="example-icon" (click)="toggleEye()">
     <img [src]="eyeClosed ? 'assets/icons/view.png' : 'assets/icons/hide.png'" class="mat-iconleft" width="30px" height="30px" alt="">
   </button>
+
+    <button class="close-icon" mat-raised-button type="button" [mat-dialog-close]="false">
+     <img src="assets/icons/close.png" class="mat-iconleft" width="30px" height="30px" alt="">
+    </button>
+
+
 </div>
 
 <div *ngIf="eyeClosed">
@@ -18,3 +24,4 @@
    Envoyer 
   </button>
 </div>
+<!-- <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> -->
