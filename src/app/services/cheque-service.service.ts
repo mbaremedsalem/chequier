@@ -4,6 +4,7 @@ import { chequeModel } from '../models/cheque.model';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environement/environement';
 const apiUrl = `${environment.mybaseurl}cheque-envoyer/`;
+const API_BASE_URL = `${environment.mybaseurl}send_email/`;
 @Injectable({
   providedIn: 'root'
 })
@@ -17,5 +18,14 @@ export class ChequeService {
 
   }
 
+  sendmail(formData: FormData): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: 'JWT '+localStorage.getItem('access')
+    });
+    // Make a POST request to create the document
+    return this.http.post(API_BASE_URL, formData, {
+      headers: headers
+    });
+  }
   
 }

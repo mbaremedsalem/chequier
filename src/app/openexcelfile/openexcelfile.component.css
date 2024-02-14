@@ -1,5 +1,8 @@
 .btn-excl{
-padding:20px
+    padding-right:20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 0px;
 }
 .btn-envoy-excl{
 padding-left: 20px;
@@ -34,4 +37,21 @@ background-color: transparent;
     top: 100;
     right: 30px;
     border: none;
+  }
+
+  .search-bar {
+    margin-right: 10px; /* Ajoutez un espacement à droite de la barre de recherche */
+    padding-right:20px;
+    padding-left: 20px;
+    padding-bottom: 7px;
+
+  }
+  .search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
   }

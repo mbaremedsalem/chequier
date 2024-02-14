@@ -1,27 +1,31 @@
 <!-- openexcelfile.component.html -->
-<div class="btn-excl">
-  <button mat-raised-button (click)="openExcell()">Export to Excel</button>
 
-  <button mat-raised-button class="example-icon" (click)="toggleEye()">
-    <img [src]="eyeClosed ? 'assets/icons/view.png' : 'assets/icons/hide.png'" class="mat-iconleft" width="30px" height="30px" alt="">
-  </button>
-
-    <button class="close-icon" mat-raised-button type="button" [mat-dialog-close]="false">
-     <img src="assets/icons/close.png" class="mat-iconleft" width="30px" height="30px" alt="">
+  <div class="btn-excl">
+    <button mat-raised-button (click)="openExcell()">Export to Excel</button>
+  
+    <button mat-raised-button class="example-icon" (click)="toggleEye()">
+      <img [src]="eyeClosed ? 'assets/icons/view.png' : 'assets/icons/hide.png'" class="mat-iconleft" width="30px" height="30px" alt="">
     </button>
+  
+    <button class="close-icon" mat-raised-button type="button" [mat-dialog-close]="false">
+       <img src="assets/icons/close.png" class="mat-iconleft" width="30px" height="30px" alt="">
+    </button>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+  <div *ngIf="eyeClosed">
+    <div class="search-bar">
+      <!-- Ajoutez l'attribut name -->
+      <input type="text" placeholder="Description" [(ngModel)]="subj" name="subj" class="search-input" />
+    </div>
+    <iframe [srcdoc]="iframeContent" width="100%" height="500px"></iframe>
+  </div>
 
+  <div class="page-content" *ngIf="showSendButton">
+    <button style="color: rgba(0, 0, 0, 0.976); border-radius: solid 20px; width: 100px; height: 40px;" mat-raised-button type="submit" [disabled]="loginInProgress" >
+     <span *ngIf="!loginInProgress">Envoyer</span>
+     <mat-progress-spinner *ngIf="loginInProgress" mode="indeterminate" style="width: 20px; height: 20px; margin: auto;"></mat-progress-spinner>
+    </button>
+  </div>
+</form>
+<div *ngIf="showErrorMessage"></div>
 
-</div>
-
-<div *ngIf="eyeClosed">
-  <iframe [srcdoc]="iframeContent" width="100%" height="500px"></iframe>
-</div>
-
-
-
-<div class="page-content" *ngIf="showSendButton">
-  <button style="color: rgba(0, 0, 0, 0.976); border-radius: solid 20px; width: 100px; height: 40px;" mat-raised-button >
-   Envoyer 
-  </button>
-</div>
-<!-- <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> -->

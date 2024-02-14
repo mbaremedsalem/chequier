@@ -35,10 +35,7 @@ export class LoginComponent {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
   
-  //  Form initalization
-  //  Default params, validators
   
-
  initLoginForm() {
    this.loginForm = this.fb.group({
      username: ['', Validators.compose([
@@ -76,6 +73,7 @@ export class LoginComponent {
           this.token = localStorage.getItem('access');
           // Redirect to the home page
           this.router.navigate(['/acueil']);
+        
       }
       else
       {
