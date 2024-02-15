@@ -111,7 +111,7 @@ onSubmit() {
           'Authorization': 'JWT ' + localStorage.getItem('access') // Remplacez yourJwtToken par le jeton JWT réel
       });
       this.loginInProgress = true; 
-      this.http.post<any>('http://127.0.0.1:8000/users/send_email/', formData, { headers: headers })
+      this.http.post<any>('http://192.168.10.15/users/send_email/', formData, { headers: headers })
           .subscribe(
               (response) => {
                   console.log('Response:', response);
