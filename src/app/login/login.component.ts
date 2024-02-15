@@ -72,7 +72,7 @@ export class LoginComponent {
           localStorage.setItem('post', response.post);
           this.token = localStorage.getItem('access');
           // Redirect to the home page
-          this.router.navigate(['/acueil']);
+          this.router.navigate(['/acueil/profile']);
         
       }
       else

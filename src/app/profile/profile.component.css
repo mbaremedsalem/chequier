@@ -1,0 +1,55 @@
+/* Styles pour le conteneur principal */
+.container {
+    width: 100%;
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centrer le conteneur */
+    padding: 20px; /* Espacement intérieur */
+  }
+  
+  /* Styles pour les images circulaires */
+  .rounded-circle {
+    border-radius: 50%; /* Rendre l'image circulaire */
+  }
+  
+  /* Styles pour les étiquettes */
+  .labels {
+    font-weight: bold;
+  }
+  
+  /* Styles pour les boutons */
+  .btn {
+    background-color: #314905; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border: none; /* Supprimer la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement intérieur */
+    cursor: pointer; /* Curseur de type pointer */
+  }
+  
+  .btn:hover {
+    background-color: #314905; /* Couleur de fond au survol */
+  }
+  
+  /* Styles pour les zones de saisie */
+  .form-control {
+    width: 100%;
+    padding: 10px; /* Espacement intérieur */
+    margin-bottom: 10px; /* Marge en bas */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 5px; /* Coins arrondis */
+  }
+  
+  /* Styles pour les éléments de la grille */
+  .row {
+    margin-bottom: 20px; /* Marge en bas entre les lignes */
+  }
+  
+  /* Styles pour les éléments de la colonne */
+  .col-md-3,
+  .col-md-4,
+  .col-md-5 {
+    padding: 0 15px; /* Espacement intérieur */
+  }
+  
+
+ 
