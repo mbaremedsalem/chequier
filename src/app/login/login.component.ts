@@ -66,6 +66,7 @@ export class LoginComponent {
           localStorage.setItem('id', response.id.toString());   
           localStorage.setItem('access', response.access);
           localStorage.setItem('nom', response.firstname);
+          localStorage.setItem('phone', response.phone);
           localStorage.setItem('prenom', response.lastname);
           localStorage.setItem('email', response.email);
           localStorage.setItem('image', response.image);
