@@ -35,10 +35,7 @@ export class LoginComponent {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
   
-  //  Form initalization
-  //  Default params, validators
   
-
  initLoginForm() {
    this.loginForm = this.fb.group({
      username: ['', Validators.compose([
@@ -69,13 +66,15 @@ export class LoginComponent {
           localStorage.setItem('id', response.id.toString());   
           localStorage.setItem('access', response.access);
           localStorage.setItem('nom', response.firstname);
+          localStorage.setItem('phone', response.phone);
           localStorage.setItem('prenom', response.lastname);
           localStorage.setItem('email', response.email);
           localStorage.setItem('image', response.image);
           localStorage.setItem('post', response.post);
           this.token = localStorage.getItem('access');
           // Redirect to the home page
-          this.router.navigate(['/acueil']);
+          this.router.navigate(['/acueil/profile']);
+        
       }
       else
       {
