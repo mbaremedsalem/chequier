@@ -5,10 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ChequeService } from '../services/cheque-service.service';
-import { environment } from 'src/environement/environement';
-import * as XLSX from 'xlsx';
-import { saveAs } from 'file-saver';
 import { OpenexcelfileComponent } from '../openexcelfile/openexcelfile.component';
+
 @Component({
   selector: 'app-cheque-envoyer',
   templateUrl: './cheque-envoyer.component.html',
