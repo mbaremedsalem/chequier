@@ -61,16 +61,9 @@ export class LoginComponent {
         // Login success
         this.message = response.message;
         // Store the access token in local storage or a cookie
-          localStorage.setItem('username', response.username);   
+
           localStorage.setItem('access', response.access);  
-          localStorage.setItem('id', response.id.toString());   
-          localStorage.setItem('access', response.access);
-          localStorage.setItem('nom', response.firstname);
-          localStorage.setItem('phone', response.phone);
-          localStorage.setItem('prenom', response.lastname);
-          localStorage.setItem('email', response.email);
-          localStorage.setItem('image', response.image);
-          localStorage.setItem('post', response.post);
+
           this.token = localStorage.getItem('access');
           // Redirect to the home page
           this.router.navigate(['/acueil/profile']);

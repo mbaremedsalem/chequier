@@ -16,7 +16,7 @@ export class ChequeEnvoyerComponent {
   chequeList: any[] = [];
 
   iframeSrc: string = '';
-
+  currentPageUrl!: string;
   dataSource = new MatTableDataSource<any>();
   searchTerm: string = '';
   balanceList: any [] = [
@@ -29,14 +29,33 @@ export class ChequeEnvoyerComponent {
 
 
   ngOnInit(): void {
-    this.chequeService.getCheque().subscribe((data:any[])=>{
-      this.chequeList = data;
-      this.dataSource.data = this.chequeList;
+    this.getCheques();
+  }
+
+  getCheques(): void {
+    this.chequeService.getCheque().subscribe(data => {
+      this.chequeList = data.results;
+      // Mettre à jour l'ID pour chaque élément de la liste
+      this.chequeList = this.chequeList.map((cheque, index) => ({ ...cheque, id: index + 1 }));
+      this.dataSource = new MatTableDataSource<any>(this.chequeList);
+      this.currentPageUrl = data.next;
     });
-  
   }
   
 
+
+  getNextPage(): void {
+    if (this.currentPageUrl) {
+      this.chequeService.getNextPage(this.currentPageUrl).subscribe(data => {
+        this.chequeList = data.results;
+        this.dataSource.data = this.chequeList;
+        this.currentPageUrl = data.next;
+      });
+    }
+  }
+  
+
+  
 openExcell(): void {  
   const dialogRef = this.dialog.open(OpenexcelfileComponent, {
     width: '1100px',

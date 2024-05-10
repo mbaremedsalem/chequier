@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { ChequeService } from '../services/cheque-service.service';
 import * as XLSX from 'xlsx';
-import { saveAs } from 'file-saver';
 import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialogRef } from '@angular/material/dialog';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -29,7 +28,7 @@ export class OpenexcelfileComponent {
   constructor(private chequeService: ChequeService, private http: HttpClient,private _snackBar: MatSnackBar,private sanitizer: DomSanitizer) {}
 
   openExcell(): void {
-    this.chequeService.getCheque().subscribe((data: any[]) => {
+    this.chequeService.getChequeexcel().subscribe((data: any[]) => {
       this.exportToExcel(data);
       this.chequeData = data;
       this.generateIframeContent();
@@ -75,17 +74,31 @@ export class OpenexcelfileComponent {
     this.selectedFile = new File([blob], 'cheque_data.xlsx', { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
 }
 
-  private generateTableContent(data: any[]): string {
-    let tableRows = '';
-    data.forEach((row: any) => {
-      let rowContent = '';
-      Object.keys(row).forEach(key => {
-        rowContent += `<td>${row[key]}</td>`;
-      });
-      tableRows += `<tr>${rowContent}</tr>`;
+private generateTableContent(data: any[]): string {
+  let tableRows = '';
+  data.forEach((row: any) => {
+    let rowContent = '';
+    Object.keys(row).forEach(key => {
+      rowContent += `<td>${row[key]}</td>`;
     });
-    return `<table>${tableRows}</table>`;
-  }
+    tableRows += `<tr>${rowContent}</tr>`;
+  });
+  return `
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            ${Object.keys(data[0]).map(key => `<th>${key}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${tableRows}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
 
   toggleEye(): void {
     this.eyeClosed = !this.eyeClosed;
@@ -111,7 +124,7 @@ onSubmit() {
           'Authorization': 'JWT ' + localStorage.getItem('access') // Remplacez yourJwtToken par le jeton JWT réel
       });
       this.loginInProgress = true; 
-      this.http.post<any>('http://192.168.10.15/users/send_email/', formData, { headers: headers })
+      this.http.post<any>('http://127.0.0.1:8000/users/send_email/', formData, { headers: headers })
           .subscribe(
               (response) => {
                   console.log('Response:', response);

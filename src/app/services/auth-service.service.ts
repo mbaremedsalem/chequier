@@ -7,6 +7,7 @@ import { Message } from '../models/message.model';
 const API_AUTH_URL = environment.baseUrlAuth + '/login';
 const apiUrl = `${environment.mybaseurl}login/`;
 const updatePasse = `${environment.mybaseurl}password/`;
+
 @Injectable({
   providedIn: 'root'
 })

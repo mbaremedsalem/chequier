@@ -25,6 +25,7 @@
           <th>code bank</th>
           <th>code pays</th>
           <th>numero de debut</th>
+          <th>status</th>
 
       </tr>
   </thead>
@@ -40,19 +41,50 @@
           <td>
               <input type="checkbox"  [checked]="cheque.isSelected" (change)="(cheque)" (change)="toggleSelection(cheque)"class="select-checkbox">
           </td>
+          
           <td>{{ cheque.id }}</td>
           <td>{{ cheque.numero_de_compte }}</td>
           <td>{{ cheque.code_agence }}</td>
-          <td>{{ cheque.Nbre_carnet }}</td>
-          <td>{{ cheque.Nbre_feuilles }}</td>
+          <td>{{ cheque.nbrchq }}</td>
+          <td>{{ cheque.nbre_feuiles }}</td>
           <td>{{ cheque.code_transaction }}</td>
-          <td>{{ cheque.nom_client }}</td>
-          <td>{{ cheque.adresse }}</td>
-          <td>{{ cheque.Code_Devise }}</td>
+          <td>{{ cheque.nom_de_client }}</td>
+          <td>{{ cheque.addresse }}</td>
+          <td>{{ cheque.code_devise }}</td>
           <td>{{ cheque.code_bank }}</td>
           <td>{{ cheque.code_pays }}</td>
           <td>{{ cheque.numero_de_debut }}</td>
+          <td>{{ cheque.status }}</td>
       </tr>
+
   </tbody>
+
   </table>
 
+<div class="container xlarge">
+    <div class="pagination">
+        <ul>
+        <!-- Add Button-->
+        <li><a href="#"></a></li>
+        <!-- For 19 button-->
+
+        <li class="active"><a href="#"></a></li><!-- for active button-->
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <!-- total 19 button-->
+        </ul>
+    </div>
+</div>
