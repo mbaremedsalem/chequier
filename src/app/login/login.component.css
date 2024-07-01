@@ -1,6 +1,19 @@
 /* Ajouter ces styles dans votre fichier CSS ou SCSS */
 
 /* Centrer la page horizontalement */
+.password-input-container {
+  position: relative;
+}
+
+
+.password-input-container .eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 24px; /* Ajustez la position comme vous le souhaitez */
+  bottom: 19px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 .auth-page {
     display: flex;
     align-items: center;
@@ -46,7 +59,7 @@
   
   /* Style pour le bouton */
   .btn-primary {
-    background-color: #314905;
+    background-color: #1c8244;
     color: #fff;
     border: none;
     border-radius: 8px;

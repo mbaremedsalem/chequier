@@ -14,7 +14,7 @@
           <div class="col-md-8 ps-md-0">
             <div class="auth-form-wrapper px-4 py-5">
               <a routerLink="." class="nobleui-logo d-block mb-2">Chéquiers-AUB</a>
-              <h5 class="text-muted fw-normal mb-4">Applications de reporting AUB pour les chéques</h5>
+              <h5 class="text-muted fw-normal mb-4">Applications de  AUB pour les chéques</h5>
               <form class="forms-sample" [formGroup]="loginForm" (ngSubmit)="submit()">
                 <div class="mb-3">
                   <label for="username" class="form-label">Login</label>
@@ -26,12 +26,19 @@
                          placeholder="login">
                 </div>
                 <div class="mb-3">
+                  <div class="password-input-container">
                   <label for="password" class="form-label">Mot de passe</label>
                   <input type="password"
                          class="form-control"
                          [(ngModel)]="credentials.password"
                          formControlName="password"
-                         id="password">
+                         id="password"
+                         #passwordInput
+                         >
+                  <span class="eye-icon" (click)="togglePasswordVisibility(passwordInput)">
+                          <img [src]="showPassword ? 'assets/icons/view.png' : 'assets/icons/hide.png'" class="mat-iconleft" width="25px" height="25px" alt="">
+                        </span>
+                      </div>
                 </div>
                 <div>
                   <a [routerLink]="['/change-password']" class="txt1">
@@ -43,7 +50,9 @@
                           
                           <span *ngIf="!loginInProgress">Connexion</span>
                             <mat-progress-spinner *ngIf="loginInProgress" mode="indeterminate" style="width: 20px; height: 20px; margin: auto;"></mat-progress-spinner>
-                  </button>
+                 
+                 
+                          </button>
                 </div>
               </form>
             </div>

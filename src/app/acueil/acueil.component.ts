@@ -17,7 +17,7 @@ export class AcueilComponent {
   useTraditionalTable = false;
   showDocuments = false;
   showFluxs = false;
-
+  hidden = false;
 
   constructor(private router: Router, private route: ActivatedRoute) {
     // Utilisez le routeur pour surveiller les modifications de l'URL
@@ -32,15 +32,23 @@ export class AcueilComponent {
   removeToken() {
     this.token = null;
     localStorage.removeItem('access');
+    localStorage.removeItem('code_agence');
+    localStorage.removeItem('hasExecuted');
+
   }
 
+
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
+  }
   logout() {
     // Appel de la méthode de déconnexion du service d'authentification
     this.removeToken();
     // Redirigez l'utilisateur vers la page de connexion ou toute autre page appropriée après la déconnexion.
     // Vous pouvez utiliser le routeur Angular pour cela.
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
+  
   reloadPage(targetRoute: string) {
     const currentRoute = this.router.url;
     // Vérifiez si la route actuelle est la même que la cible

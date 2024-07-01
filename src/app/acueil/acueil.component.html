@@ -6,12 +6,9 @@
           
           <div class="document-container">
             <div class="document-icon">
-              <img src="assets/images/AUB.png" class="mat-iconleft" width="60px" height="90px" alt=""> 
+              <img src="assets/aub_logo_text_to_the_side.svg" class="mat-iconleft" width="100%" height="100%" alt=""> 
             </div>
-            <div class="document-details">
-              <p>ALGERIAN UNION BANQUE</p>
-              <p>البنك الاتحاد الجزاري</p>
-            </div>
+            
           </div>
          
         </div>
@@ -22,17 +19,18 @@
           </a>
           <div *ngIf="showDocuments" class="document-tree">
             <ul>
-                <li><a [routerLink]="['/acueil/cheque-envoyer']"> chéque a envoyer </a></li>
-                <li><a [routerLink]="['/acueil/cheque-envoyer']"> chéque archive </a></li>
-                <!-- <li><a [routerLink]="['/acueil/cheque-distribuer']"> chéque distribuer </a></li>
-                <li><a [routerLink]="['/acueil/cheque-traiter']"> chéque traiter </a></li>           -->
+                <li><a [routerLink]="['/acueil/cheque-banque']"><img src="assets/images/cheque-banque.png" alt="Chéques Banque Icon" class="icon"> Chéques Banque </a></li>
+                <li><a [routerLink]="['/acueil/tous-cheque']"><img src="assets/images/tous-cheque.png" alt="Tous Chéques Icon" class="icon"> Tous Chéques </a></li>
+
+
+                <li><a [routerLink]="['/acueil/cheque-envoyer-excel']"><img src="assets/images/cheque-envoyer.png" alt="Chéque Envoyer Icon" class="icon"> Chéque A Envoyer </a></li>
+
+
+                <li><a [routerLink]="['/acueil/cheque-archive']"><img src="assets/images/cheque-archive.png" alt="Chéque Archive Icon" class="icon"> Chéque Archive </a></li>
+
             </ul>
         </div>
 
-        <!-- <a mat-list-item [routerLink]="['/acueil/flux-entrant']" >
-            
-          <img src="assets/icons/bank-account.png" class="mat-iconleft" width="30px" height="30px" alt=""> compte 
-        </a> -->
         
           <a mat-list-item [routerLink]="['/acueil/profile']" [ngClass]="'primary-list-item'">
             <img src="assets/icons/user.png" class="mat-iconleft" width="30px" height="30px" alt=""> Profile
@@ -48,14 +46,12 @@
     </mat-sidenav>
   
     <mat-sidenav-content >
-        <mat-toolbar style="height: 80px; color: white; background-color:#314905;" >
+        <mat-toolbar style="height: 80px; color: white; background-color:#1c8244;" >
             <button mat-icon-button (click)="sidenav.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
             <img src="assets/icons/main-menu.png" class="mat-icontop" width="30px" height="30px" alt=""> 
             </button>
 
-            <span style="padding-bottom:15px;">chéquier</span>
-
-            <span style="padding-bottom:15px;">Chéque</span>
+            <span style="padding-bottom:15px;">Chéquiers-AUB</span>
             <span class="example-spacer"></span>
           
           <div class="search-input-container">
@@ -65,12 +61,15 @@
           <button  class="example-icon-sarche" >
                 <img src="assets/icons/search.png" class="mat-icontop-searche" width="30px" height="30px" alt=""> 
           </button>
-          <button mat-icon-button class="example-icon-share favorite-icon"  >
+          <button mat-icon-button (click)="logout()" class="example-icon-share favorite-icon"  >
             <img src="assets/icons/logout-white.png" class="mat-icontop" width="30px" height="30px" alt=""> 
             </button>
+
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <img src="assets/icons/notification.png" class="mat-icontop" width="30px" height="30px" alt=""> 
+              <img src="assets/icons/notification.png" class="mat-icontop" width="30px" height="30px" alt=""> 
+              <!-- <span class="badge">1</span> -->
           </button>
+          
           </mat-toolbar>
 
 
@@ -124,7 +123,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="assets/images/AUB.png" class="rounded-image" alt="Logo de votre site" />
+          <img src="assets/aub_logo_text_to_the_side.svg" class="rounded-image" alt="Logo de votre site" />
         </div>
   
         <div class="footer-contact">

@@ -2,7 +2,11 @@
     <div class="search-bar">
       <input type="text" placeholder="Rechercher" class="search-input" [(ngModel)]="searchTerm" (input)="applyFilter()"/>
     </div>
-
+    <!-- <div class="actions" *ngIf="cheque.isSelected">
+      <button mat-icon-button class="example-icon-up">
+      <span><img src="assets/icons/edit.png" class="mat-iconleft" width="22px" height="24px" alt=""></span>
+      </button>
+      </div> -->
     <div class="page-content" style="padding-left: 50px; padding-bottom: 10px;">
       <button style="color: white; border-radius: solid 20px; width: 200px; height: 50px;" mat-raised-button class="example-icon" (click)="openExcell()">
        <img src="assets/icons/xls.png" class="mat-iconleft" width="30px" height="30px" alt="">

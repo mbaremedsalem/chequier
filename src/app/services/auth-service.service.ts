@@ -8,6 +8,7 @@ const API_AUTH_URL = environment.baseUrlAuth + '/login';
 const apiUrl = `${environment.mybaseurl}login/`;
 const updatePasse = `${environment.mybaseurl}password/`;
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +33,13 @@ export class AuthServiceService {
     return this.http.post<User>(apiUrl, credentials, httpOptions);
     
   }
+
+  updateProfile(profileData: any): Observable<any> {
+
+    return this.http.put<any>(`${environment.mybaseurl}update-profile/${localStorage.getItem('id')}/`, profileData);
+  }
+
+
 
   changePassword(credentials: any): Observable<Message> {
    

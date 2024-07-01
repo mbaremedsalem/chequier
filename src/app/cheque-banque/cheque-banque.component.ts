@@ -8,12 +8,11 @@ import { ChequeService } from '../services/cheque-service.service';
 import { OpenexcelfileComponent } from '../openexcelfile/openexcelfile.component';
 
 @Component({
-  selector: 'app-cheque-envoyer',
-  templateUrl: './cheque-envoyer.component.html',
-  styleUrls: ['./cheque-envoyer.component.css']
+  selector: 'app-cheque-banque',
+  templateUrl: './cheque-banque.component.html',
+  styleUrls: ['./cheque-banque.component.css']
 })
-export class ChequeEnvoyerComponent {
-
+export class ChequeBanqueComponent {
   chequeList: any[] = [];
 
   iframeSrc: string = '';
@@ -27,7 +26,6 @@ export class ChequeEnvoyerComponent {
   ];
   count!:number;
   currentPage: number = 1;
-  currentPage1: string = 'page1';
   pages: number[] = [];
   pageUrls: { [key: number]: string } = {};
 
@@ -41,12 +39,7 @@ export class ChequeEnvoyerComponent {
     this.getCheques();
   }
 
-
-
-  onPageChanged(page: string) {
-    this.currentPage1 = page;
-  }
-  getCheques(pageUrl: string = 'http://127.0.0.1:8000/users/cheque-envoyer/'): void {
+  getCheques(pageUrl: string = 'http://127.0.0.1:8000/users/cheque-banque-envoyer/'): void {
     this.chequeService.getCheque(pageUrl).subscribe(data => {
       this.chequeList = data.results;
       this.count = data.count;
@@ -74,7 +67,7 @@ export class ChequeEnvoyerComponent {
     this.currentPage = this.extractPageNumber(currentPageUrl);
     this.pages = Array.from({ length: totalPages }, (_, i) => i + 1);
     this.pageUrls = this.pages.reduce((acc: { [key: number]: string }, page: number) => {
-      acc[page] = `http://127.0.0.1:8000/users/cheque-envoyer/?page=${page}`;
+      acc[page] = `http://127.0.0.1:8000/users/cheque-banque-envoyer/?page=${page}`;
       return acc;
     }, {});
   }

@@ -3,8 +3,8 @@ export class User {
     status!:number;
     username!: string;
     email!: string;
-    fullname!: string;
     post!: string;
+    code_agence!: string;
     firstname!: string;
     lastname!: string;
     phone!:string;

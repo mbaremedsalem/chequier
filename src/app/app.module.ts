@@ -1,7 +1,7 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatBadgeModule} from '@angular/material/badge';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,8 +23,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { OpenexcelfileComponent } from './openexcelfile/openexcelfile.component';
-
-
+import { ChequeArchiveComponent } from './cheque-archive/cheque-archive.component';
+import { ChequeDemanderComponent } from './cheque-demander/cheque-demander.component';
+import { TousChequeComponent } from './tous-cheque/tous-cheque.component';
+import { ChequeBanqueComponent } from './cheque-banque/cheque-banque.component';
+import { OpenallchequeComponent } from './openallcheque/openallcheque.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MessagesModule } from 'primeng/messages';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +41,12 @@ import { OpenexcelfileComponent } from './openexcelfile/openexcelfile.component'
     ChequeEnvoyerComponent,
     ChequeDistribuerComponent,
     ChequeTraiterComponent,
-    OpenexcelfileComponent
+    OpenexcelfileComponent,
+    ChequeArchiveComponent,
+    ChequeDemanderComponent,
+    TousChequeComponent,
+    ChequeBanqueComponent,
+    OpenallchequeComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +62,10 @@ import { OpenexcelfileComponent } from './openexcelfile/openexcelfile.component'
     MatTableModule,
     MatDialogModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    MatBadgeModule,
+    MatProgressBarModule,
+    MessagesModule,
     
   ],
   providers: [],

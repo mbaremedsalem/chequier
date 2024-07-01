@@ -32,7 +32,7 @@
   }
   
   .footer-logo img {
-  width: 100px;
+  width: 300px;
   height: auto;
   border-radius: 5%;
   }
@@ -238,11 +238,53 @@
  
   
 
-
   
+  .example-icon {
+    position: relative; /* Make the button a positioned element */
+}
+
+.badge {
+    position: absolute; /* Position the badge absolutely relative to the button */
+    top: 0px; /* Adjust top position to be close to the image */
+    right: 0px; /* Adjust right position to be close to the image */
+    background-color: red; /* Red background for the badge */
+    color: white; /* White text color */
+    border-radius: 50%; /* Make the badge round */
+    padding: 2px 6px; /* Padding for the badge */
+    font-size: 12px; /* Font size for the badge */
+    font-weight: bold; /* Bold font for better visibility */
+    line-height: 1; /* Ensure the text is vertically centered */
+    display: flex; /* Center the text horizontally and vertically */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    transform: translate(50%, -50%); /* Adjust position to be close to the image */
+}
 
 
-  
-  
+
+
+.document-tree ul {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0; /* Remove default padding */
+}
+
+.document-tree li {
+  margin-bottom: 10px; /* Add some space between items */
+}
+
+.document-tree a {
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Center items vertically */
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color */
+}
+
+.document-tree .icon {
+  margin-right: 8px; /* Space between icon and text */
+  width: 20px; /* Set icon width */
+  height: 20px; /* Set icon height */
+}
+
+
   
   

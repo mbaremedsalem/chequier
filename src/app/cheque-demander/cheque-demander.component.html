@@ -2,12 +2,6 @@
     <div class="search-bar">
       <input type="text" placeholder="Rechercher" class="search-input" [(ngModel)]="searchTerm" (input)="applyFilter()"/>
     </div>
-
-    <div class="page-content" style="padding-left: 50px; padding-bottom: 10px;">
-      <button style="color: white; border-radius: solid 20px; width: 200px; height: 50px;" mat-raised-button class="example-icon" (click)="openExcell()">
-       <img src="assets/icons/xls.png" class="mat-iconleft" width="30px" height="30px" alt="">
-      </button>
-    </div>
   </div>
   
   <table>
@@ -33,12 +27,16 @@
   <tbody>
       <tr *ngFor="let cheque of dataSource.filteredData">
   
-
+              <div class="actions" *ngIf="cheque.isSelected">
+              <button mat-icon-button class="example-icon-up">
+              <span><img src="assets/icons/edit.png" class="mat-iconleft" width="22px" height="24px" alt=""></span>
+              </button>
+            </div>
   
           <td>
               <input type="checkbox"  [checked]="cheque.isSelected" (change)="(cheque)" (change)="toggleSelection(cheque)"class="select-checkbox">
           </td>
-        
+          
           <td>{{ cheque.id }}</td>
           <td>{{ cheque.numero_de_compte }}</td>
           <td>{{ cheque.code_agence }}</td>
@@ -58,7 +56,8 @@
 
   </table>
 
-  <div class="container xlarge">
+
+<div class="container xlarge">
     <div class="pagination">
       <ul>
         <li *ngIf="previousPageUrl" (click)="fetchPage(previousPageUrl)">

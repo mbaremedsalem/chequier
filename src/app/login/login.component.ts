@@ -21,6 +21,7 @@ export class LoginComponent {
   token: string | null | undefined;
   errorMessage: string | undefined;
   showErrorMessage: boolean = false;
+  showPassword: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +30,7 @@ export class LoginComponent {
     private route: ActivatedRoute,
     private _snackBar: MatSnackBar,) {
   }
+  
   ngOnInit(): void {
     this.initLoginForm();
     // get return url from route parameters or default to '/'
@@ -61,8 +63,19 @@ export class LoginComponent {
         // Login success
         this.message = response.message;
         // Store the access token in local storage or a cookie
-
+          localStorage.setItem('id', response.id.toString());  
           localStorage.setItem('access', response.access);  
+          localStorage.setItem('code_agence', response.code_agence);  
+
+          localStorage.setItem('username', response.username);  
+          localStorage.setItem('email', response.email);  
+          localStorage.setItem('nom', response.firstname);  
+          localStorage.setItem('prenom', response.lastname);            
+          localStorage.setItem('phone', response.phone);  
+          localStorage.setItem('post', response.post);  
+
+
+       
 
           this.token = localStorage.getItem('access');
           // Redirect to the home page
@@ -86,7 +99,11 @@ export class LoginComponent {
     this.loginInProgress = false; // Set to false after login completes (whether success or error)
   });
 }
-
+togglePasswordVisibility(inputField: HTMLInputElement): void {
+  const type = inputField.type;
+  inputField.type = type === 'password' ? 'text' : 'password';
+  this.showPassword = !this.showPassword;
+}
   submit() {
     this.login();
   }
@@ -95,5 +112,15 @@ export class LoginComponent {
     this._snackBar.open(message, 'Fermer', {
       duration: 3000, // Durée d'affichage de l'alerte (3 secondes)
     });
+  }
+  removeToken() {
+    this.token = null;
+  }
+
+  logout() {
+    // Appel de la méthode de déconnexion du service d'authentification
+    this.removeToken();
+    // Redirigez l'utilisateur vers la page de connexion ou toute autre page appropriée après la déconnexion.
+    // Vous pouvez utiliser le routeur Angular pour cela.
   }
 }

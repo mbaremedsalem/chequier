@@ -1,6 +1,6 @@
 .btn-excl{
     padding-right:20px;
-    padding-left: 0px;
+    padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 0px;
 }
@@ -13,7 +13,7 @@ background-color: transparent;
 }
 
 .page-content{
-    /* padding-left:20px; */
+    padding-left:20px;
     cursor: pointer;
 }
 
@@ -28,12 +28,11 @@ background-color: transparent;
     top: 12px;
   }
 
-
-/* styles.css */
+  /* styles.css */
 .close-icon {
     cursor: pointer; /* Change the cursor on hover to indicate interaction */
     background-color: transparent; 
-    position: absolute;
+    position:absolute;
     top: 100;
     right: 30px;
     border: none;
@@ -42,7 +41,7 @@ background-color: transparent;
   .search-bar {
     margin-right: 10px; /* Ajoutez un espacement à droite de la barre de recherche */
     padding-right:20px;
-   
+    padding-left: 20px;
     padding-bottom: 7px;
 
   }
@@ -50,8 +49,7 @@ background-color: transparent;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
-    height:70px;
+    width: 200px;
     font-size: 14px;
     outline: none;
     transition: border-color 0.2s ease-in-out;

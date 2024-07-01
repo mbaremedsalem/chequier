@@ -1,19 +1,17 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Inject, LOCALE_ID, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { ChequeService } from '../services/cheque-service.service';
-import { OpenexcelfileComponent } from '../openexcelfile/openexcelfile.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-cheque-envoyer',
-  templateUrl: './cheque-envoyer.component.html',
-  styleUrls: ['./cheque-envoyer.component.css']
+  selector: 'app-cheque-archive',
+  templateUrl: './cheque-archive.component.html',
+  styleUrls: ['./cheque-archive.component.css']
 })
-export class ChequeEnvoyerComponent {
-
+export class ChequeArchiveComponent {
   chequeList: any[] = [];
 
   iframeSrc: string = '';
@@ -27,7 +25,6 @@ export class ChequeEnvoyerComponent {
   ];
   count!:number;
   currentPage: number = 1;
-  currentPage1: string = 'page1';
   pages: number[] = [];
   pageUrls: { [key: number]: string } = {};
 
@@ -38,16 +35,21 @@ export class ChequeEnvoyerComponent {
 
 
   ngOnInit(): void {
-    this.getCheques();
+    this.getChequesArchive();
   }
 
-
-
-  onPageChanged(page: string) {
-    this.currentPage1 = page;
+  getChequesArchive(): void {
+    this.chequeService.getChequeArchiver().subscribe(data => {
+      this.chequeList = data;
+      // Mettre à jour l'ID pour chaque élément de la liste
+     // this.chequeList = this.chequeList.map((cheque, index) => ({ ...cheque, id: index + 1 }));
+      this.dataSource = new MatTableDataSource<any>(this.chequeList);
+      this.currentPageUrl = data.next;
+    });
   }
-  getCheques(pageUrl: string = 'http://127.0.0.1:8000/users/cheque-envoyer/'): void {
-    this.chequeService.getCheque(pageUrl).subscribe(data => {
+
+  getCheques(pageUrl: string = 'http://127.0.0.1:8000/users/get-archive/'): void {
+    this.chequeService.getChequeArchiver(pageUrl).subscribe(data => {
       this.chequeList = data.results;
       this.count = data.count;
       console.log(this.count);
@@ -74,25 +76,10 @@ export class ChequeEnvoyerComponent {
     this.currentPage = this.extractPageNumber(currentPageUrl);
     this.pages = Array.from({ length: totalPages }, (_, i) => i + 1);
     this.pageUrls = this.pages.reduce((acc: { [key: number]: string }, page: number) => {
-      acc[page] = `http://127.0.0.1:8000/users/cheque-envoyer/?page=${page}`;
+      acc[page] = `http://127.0.0.1:8000/users/get-archive/?page=${page}`;
       return acc;
     }, {});
   }
-  
-  
-openExcell(): void {  
-  const dialogRef = this.dialog.open(OpenexcelfileComponent, {
-    width: '1100px',
-    height:'690px',
-    panelClass: 'custom-dialog-container',
-    position: {
-      left: '298px', // Ajoutez la valeur de padding-left que vous souhaitez
-    },
-    disableClose: true
-  });
-
-}
-
   applyFilter() {
     // Apply the filter directly to the MatTableDataSource
     this.dataSource.filter = this.searchTerm.trim().toLowerCase();
